@@ -47,7 +47,7 @@
  .cf:before, .cf:after {
     content:" ";
     /* 1 */
-    display: table;
+    /*display: table;*/
     /* 2 */
 }
 .cf:after {
@@ -246,22 +246,24 @@ body {
 }
 .taskItem {
     width: 100%;
-    font-size: 1.1em;
+    font-size: 0.95em;
     list-style: none;
-    padding: 1em 0.75em;
+    margin: 10px 0px;
     background: #eee;
+    border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
     letter-spacing: -4px;
+    min-height: 2em;
 }
 
-.taskActions, .taskText {
+.taskText {
     letter-spacing: normal;
     vertical-align: middle;
+    padding: 10px 6px 10px 6px;
 }
 .taskActions {
     float: left;
     /*display: inline-block;*/
-    margin-right: 0.75em;
 }
 .taskButton {
     color: #555;
@@ -271,7 +273,7 @@ body {
     overflow:hidden;
     margin: 0;
     display: inline-block;
-    line-height: 2.1;
+    /*line-height: 2.1;*/
     /*white-space: nowrap;*/
     max-height: 6em;
     display: inherit;
@@ -590,6 +592,31 @@ body {
     background-color: rgb(217, 217, 217);
     color: rgb(153, 153, 153)
 }
+.color-worst-action {
+    background-color: #c96652;
+}
+.color-worse-action {
+    background-color: #dc5d5d;
+}
+.color-bad-action {
+    background-color: #f4a24c;
+}
+.color-neutral-action {
+    background-color: #ffc314;
+}
+.color-good-action {
+    background-color: #71b05b;
+}
+.color-better-action {
+    background-color: #6398a2;
+}
+.color-best-action {
+    background-color: #2a6de3;
+}
+.completedaction {
+    background-color: rgb(197, 197, 197);
+    color: rgb(153, 153, 153)
+}
 .reward {
     background-color: white;
 }
@@ -787,12 +814,13 @@ Menu
 Tasks
 --------------------*/
  #task-list {
-    margin:0px;
+    margin: 0px;
     padding:0px;
 }
 .taskWell {
     overflow:hidden;
     overflow-y:scroll;
+    background: #f5f5f5;
 }
 /*.habitrpg_logo {
   background:url('../assets/habitrpg_pixel.png');

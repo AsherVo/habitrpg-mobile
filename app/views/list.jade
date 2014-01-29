@@ -24,13 +24,13 @@ script(id='views/list.html',type='text/ng-template')
             span(ng-show='task.type == "daily" || task.type == "todo"', ng-cloak='ng-cloak')
               label.topcoat-checkbox
                 input(type='checkbox', ng-model='task.completed', ng-change='changeCheck(task)')
-                .topcoat-checkbox__checkmark
+                .topcoat-checkbox__checkmark(class="{{getClass(task.value)}}-action", ng-class='{completedaction: (task.completed || notDue(task)), editing: task == editedTask, last:$last}')
             // Rewards
-          p.taskText(ng-click='selectTask(task)')
-            markdown(ng-model='task.text',style='display: inline-block')
           button.topcoat-button.buy-button(ng-show='task.type == "reward"', ng-click='score(task,"down")', ng-cloak='ng-cloak')
             | {{task.value}}
             span.shop_gold
+          p.taskText(ng-click='selectTask(task)')
+            markdown(ng-model='task.text',style='display: inline-block')
         li.cf.taskItem(class="{{item.classes}} {{getClass(0)}}",ng-repeat='item in itemStore', ng-show='nav.type == "reward" && item.text')
           .shop-sprite.item-img(class="shop_{{item.key}}")
           p.taskText(ng-click='selectTask(item)')  {{item.text}}

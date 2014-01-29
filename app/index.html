@@ -110,14 +110,14 @@
                 <!-- Daily, Todo--><span ng-show="task.type == &quot;daily&quot; || task.type == &quot;todo&quot;" ng-cloak="ng-cloak">
                   <label class="topcoat-checkbox">
                     <input type="checkbox" ng-model="task.completed" ng-change="changeCheck(task)"/>
-                    <div class="topcoat-checkbox__checkmark"></div>
+                    <div ng-class="{completedaction: (task.completed || notDue(task)), editing: task == editedTask, last:$last}" class="topcoat-checkbox__checkmark {{getClass(task.value)}}-action"></div>
                   </label></span>
                 <!-- Rewards-->
               </div>
+              <button ng-show="task.type == &quot;reward&quot;" ng-click="score(task,&quot;down&quot;)" ng-cloak="ng-cloak" class="topcoat-button buy-button">{{task.value}}<span class="shop_gold"></span></button>
               <p ng-click="selectTask(task)" class="taskText">
                 <markdown ng-model="task.text" style="display: inline-block"></markdown>
               </p>
-              <button ng-show="task.type == &quot;reward&quot;" ng-click="score(task,&quot;down&quot;)" ng-cloak="ng-cloak" class="topcoat-button buy-button">{{task.value}}<span class="shop_gold"></span></button>
             </li>
             <li ng-repeat="item in itemStore" ng-show="nav.type == &quot;reward&quot; &amp;&amp; item.text" class="cf taskItem {{item.classes}} {{getClass(0)}}">
               <div class="shop-sprite item-img shop_{{item.key}}"></div>
